@@ -14,7 +14,7 @@ Abstract
 --------
 
 This is a small Node module for determining the Universally Unique
-Identifier (UUID) of a Host, based either its IEEE MAC address (primary
+Identifier (UUID) of a Host, based on either its IEEE MAC address (primary
 source) or a fingerprint of its platform parameters (secondary source).
 
 Getting HostId
