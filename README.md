@@ -28,12 +28,16 @@ Using HostId
 ------------
 
 ```shell
-$ hostid
+# Unix shell
+$ hostid=`hostid`
+$ echo "Host Id: $hostid"
 ```
 
 ```js
-var HostId = require("hostid")
-var hostid = HostId()
+# Node program
+import HostId from "hostid"
+let hostid = HostId()
+console.log(`Host Id: ${hostid}`)
 ```
 
 License
