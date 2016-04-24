@@ -2,7 +2,7 @@
     "name":        "hostid",
     "homepage":    "http://github.com/rse/hostid",
     "description": "Determine Universally Unique Identifier (UUID) of Host",
-    "version":     "0.9.0",
+    "version":     "1.0.0",
     "license":     "MIT",
     "author": {
         "name":    "Ralf S. Engelschall",
