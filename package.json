@@ -29,7 +29,7 @@
         "grunt-eslint":         "~20.1.0"
     },
     "dependencies" : {
-        "pure-uuid":            "~1.4.8"
+        "pure-uuid":            "~1.4.11"
     },
     "engines": {
         "node":                 ">=4.0.0"
