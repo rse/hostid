@@ -33,44 +33,12 @@ var hostid = null
 var getHostId = function () {
     /*  if still not present, initially determine id of host...  */
     if (hostid === null) {
-
-        /*  iterate over all network interfaces...  */
-        var ifaces = os.networkInterfaces()
-        var macs = {}
-        Object.keys(ifaces).forEach(function (ifname) {
-            /*  skip some well-known virtual interfaces  */
-            if (ifname.match(/^(?:lo|tun|tap)/i))
-                return
-
-            /*  iterate over all network sub-interfaces...  */
-            ifaces[ifname].forEach(function (iface) {
-                /*  skip internal interfaces  */
-                if (iface.internal)
-                    return
-
-                /*  remember IEEE MAC address  */
-                if (iface.mac)
-                    macs[iface.mac] = true
-            })
-        })
-
-        /*  determine UUIDv5 payload  */
-        var payload
-        macs = Object.keys(macs)
-        if (macs.length > 0) {
-            /*  strategy 1 (hardware): use (first) IEEE MAC address  */
-            if (macs.length > 1)
-                macs = macs.sort()
-            payload = macs[0]
-        }
-        else {
-            /*  strategy 2 (software): use a host fingerprint  */
-            payload = os.arch() + os.endianness() + os.platform() + os.hostname()
-        }
+        /*  determine host fingerprint  */
+        var fingerprint = os.cpus().length + os.arch() + os.platform() + os.hostname()
 
         /*  generate UUIDv5-based host id  */
         var uuid_ns = new UUID(5, "ns:URL", "urn:hostid")
-        var uuid = new UUID(5, uuid_ns, payload)
+        var uuid = new UUID(5, uuid_ns, fingerprint)
         hostid = uuid.format()
     }
     return hostid

@@ -14,8 +14,10 @@ Abstract
 --------
 
 This is a small Node module for determining the Universally Unique
-Identifier (UUID) of a Host, based on either its IEEE MAC address (primary
-source) or a fingerprint of its platform parameters (secondary source).
+Identifier (UUID) of a host, based on a simple fingerprint derived from
+the number of CPUs, the CPU architecture, the operating system name, and
+the host name. As long as those fingerprint sources do not change, the
+resulting host UUID will not change, too.
 
 Getting HostId
 --------------
